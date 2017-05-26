@@ -1,9 +1,9 @@
-<manifest alg="2" build="2017.0.2.363" opt="true" iceEnabled="true" iceMarkupVersion="2" iceEnabledOptions="link,responsive,cachebuster,textStyling" exportTarget="other" domain="aumothra.dance" resolutions="1x" timestamp="1495792794928">
+<manifest alg="2" build="2017.0.2.363" opt="true" iceEnabled="true" iceMarkupVersion="2" iceEnabledOptions="link,responsive,cachebuster,textStyling" exportTarget="other" domain="aumothra.dance" resolutions="1x" timestamp="1495836005636">
   <folder name="css">
-    <file name="site_global.css" crc="443350757"/>
+    <file name="site_global.css" crc="237313513"/>
     <file name="bagel.css" crc="4160974976" ref="bagel"/>
+    <file name="index.css" crc="4073980214" ref="index"/>
     <file name="eggs.css" crc="278296372" ref="eggs"/>
-    <file name="index.css" crc="298033673" ref="index"/>
     <file name="milk.css" crc="375887693" ref="milk"/>
   </folder>
   <folder name="assets">
@@ -41,8 +41,8 @@
       <caption webpage="bagel" alt=""/>
     </file>
   </folder>
-  <file name="index.html" crc="481670326" seo="true" mt="1495792742828" redirect="true"/>
-  <file name="milk.html" crc="4040094765" seo="true" mt="1495792637705" redirect="true"/>
-  <file name="eggs.html" crc="3863654736" seo="true" mt="1495792648630" redirect="true"/>
-  <file name="bagel.html" crc="456273830" seo="true" mt="1495792699471" redirect="true"/>
+  <file name="index.html" crc="120713274" seo="true" mt="1495835933814" redirect="true"/>
+  <file name="milk.html" crc="456951862" seo="true" mt="1495835933822" redirect="true"/>
+  <file name="eggs.html" crc="463410075" seo="true" mt="1495835933812" redirect="true"/>
+  <file name="bagel.html" crc="3864768406" seo="true" mt="1495835933820" redirect="true"/>
 </manifest>
