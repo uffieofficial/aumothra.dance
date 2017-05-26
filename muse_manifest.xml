@@ -1,21 +1,41 @@
-<manifest alg="2" build="2017.0.2.363" opt="true" iceEnabled="true" iceMarkupVersion="2" iceEnabledOptions="link,responsive,cachebuster,textStyling" exportTarget="other" domain="aumothra.dance" resolutions="1x" timestamp="1495776462659">
+<manifest alg="2" build="2017.0.2.363" opt="true" iceEnabled="true" iceMarkupVersion="2" iceEnabledOptions="link,responsive,cachebuster,textStyling" exportTarget="other" domain="aumothra.dance" resolutions="1x" timestamp="1495781146999">
   <folder name="css">
     <file name="site_global.css" crc="443350757"/>
-    <file name="index.css" crc="183442469" ref="index"/>
+    <file name="untitled-2.css" crc="4261782114" ref="untitled-2"/>
+    <file name="index.css" crc="6026236" ref="index"/>
+    <file name="untitled-4.css" crc="428316968" ref="untitled-4"/>
+    <file name="untitled-3.css" crc="4286752776" ref="untitled-3"/>
   </folder>
   <folder name="scripts">
-    <file name="jquery-1.8.3.min.js" crc="209076791" ref="index"/>
-    <file name="museutils.js" crc="4232573551" ref="index"/>
-    <file name="whatinput.js" crc="86476730" ref="index"/>
-    <file name="museconfig.js" crc="4152223963" ref="index"/>
-    <file name="jquery.watch.js" crc="3844535323" ref="index"/>
-    <file name="require.js" crc="4234670167" ref="index"/>
+    <file name="jquery-1.8.3.min.js" crc="209076791" ref="index:untitled-2:untitled-3:untitled-4"/>
+    <file name="museutils.js" crc="4232573551" ref="index:untitled-2:untitled-3:untitled-4"/>
+    <file name="whatinput.js" crc="86476730" ref="index:untitled-2:untitled-3:untitled-4"/>
+    <file name="museconfig.js" crc="4152223963" ref="index:untitled-2:untitled-3:untitled-4"/>
+    <file name="require.js" crc="4234670167" ref="index:untitled-2:untitled-3:untitled-4"/>
   </folder>
   <folder name="images">
-    <file name="favicon.ico" crc="340903003" ref="index"/>
-    <file name="djtexttool edit.jpg" crc="68167418" seo="true" ref="index">
+    <file name="home-favicon.ico" crc="30147408" ref="index"/>
+    <file name="193x93.jpg" crc="4035105332" seo="true" ref="index">
       <caption webpage="index" alt=""/>
     </file>
+    <file name="293x93.jpg" crc="3911268298" seo="true" ref="index">
+      <caption webpage="index" alt=""/>
+    </file>
+    <file name="393x93.jpg" crc="4213166631" seo="true" ref="index">
+      <caption webpage="index" alt=""/>
+    </file>
+    <file name="1.jpg" crc="338526199" seo="true" ref="untitled-2">
+      <caption webpage="untitled-2" alt=""/>
+    </file>
+    <file name="2.jpg" crc="3833972975" seo="true" ref="untitled-3">
+      <caption webpage="untitled-3" alt=""/>
+    </file>
+    <file name="3.jpg" crc="329755564" seo="true" ref="untitled-4">
+      <caption webpage="untitled-4" alt=""/>
+    </file>
   </folder>
-  <file name="index.html" crc="4129096498" seo="true" mt="1495776404202" redirect="true"/>
+  <file name="index.html" crc="45668021" seo="true" mt="1495781120739" redirect="true"/>
+  <file name="untitled-2.html" crc="164574544" seo="true" mt="1495780995593" redirect="true"/>
+  <file name="untitled-3.html" crc="4115849832" seo="true" mt="1495781006727" redirect="true"/>
+  <file name="untitled-4.html" crc="349077035" seo="true" mt="1495780227495" redirect="true"/>
 </manifest>

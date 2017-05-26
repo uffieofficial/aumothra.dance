@@ -6,7 +6,40 @@
     <changefreq>weekly</changefreq>
     <priority>0.5</priority>
     <image:image>
-      <image:loc>http://aumothra.dance/images/djtexttool%20edit.jpg</image:loc>
+      <image:loc>http://aumothra.dance/images/193x93.jpg</image:loc>
+    </image:image>
+    <image:image>
+      <image:loc>http://aumothra.dance/images/293x93.jpg</image:loc>
+    </image:image>
+    <image:image>
+      <image:loc>http://aumothra.dance/images/393x93.jpg</image:loc>
+    </image:image>
+  </url>
+  <url>
+    <loc>http://aumothra.dance/untitled-2.html</loc>
+    <lastmod>2017-05-26</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.5</priority>
+    <image:image>
+      <image:loc>http://aumothra.dance/images/1.jpg</image:loc>
+    </image:image>
+  </url>
+  <url>
+    <loc>http://aumothra.dance/untitled-3.html</loc>
+    <lastmod>2017-05-26</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.5</priority>
+    <image:image>
+      <image:loc>http://aumothra.dance/images/2.jpg</image:loc>
+    </image:image>
+  </url>
+  <url>
+    <loc>http://aumothra.dance/untitled-4.html</loc>
+    <lastmod>2017-05-26</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.5</priority>
+    <image:image>
+      <image:loc>http://aumothra.dance/images/3.jpg</image:loc>
     </image:image>
   </url>
 </urlset>
