@@ -42,4 +42,16 @@
       <image:loc>http://aumothra.dance/images/3.jpg</image:loc>
     </image:image>
   </url>
+  <url>
+    <loc>http://aumothra.dance/assets/4u.zip</loc>
+    <lastmod>2017-05-26</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  <url>
+    <loc>http://aumothra.dance/assets/mothragoodies.zip</loc>
+    <lastmod>2017-05-26</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.5</priority>
+  </url>
 </urlset>
