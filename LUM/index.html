@@ -1,0 +1,148 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>OMI Spotify App</title>
+	<script src="https://unpkg.com/vue/dist/vue.js"></script>
+	<script src="/js/spotify-web-api.js"></script>
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/axios/0.16.1/axios.js"></script>
+	<link rel=stylesheet href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+	<link rel=stylesheet href="https://cdnjs.cloudflare.com/ajax/libs/bulma/0.4.0/css/bulma.min.css">
+	<style type="text/css">
+		.profile-image {
+			margin: 0 auto;
+		}
+		.albums {
+			display: flex;
+			flex-wrap: wrap;
+			justify-content: center;
+		}
+		.album {
+			text-align: center;
+			width: 220px;
+			border: 1px solid #eee;
+			margin: 10px;
+			padding: 10px; 
+		}
+		.album figure {
+			margin: 0 auto;
+		}
+		.album h1 {
+			font-size: 14px;
+		}
+	</style>
+</head>
+<body>
+	<div id="app">
+		<div class="section">
+			<div class="container">
+				<div class="columns is-multiple">
+					<div class="column is-6 is-offset-3">
+						<div class="field">
+							<p class="control">
+								<div class="has-text-centered ">
+									<a class="button is-primary" href="/auth">Sign in with Spotify</a>
+									<a class="button is-primary" href="/search">Search Spotify</a>
+								</div>
+							</p>
+						</div>
+					</div>
+				</div>
+				<div class="columns is-multiple" v-if="user">
+					<div class="column is-12">
+						<div class="box has-text-centered">
+							<figure class="image is-96x96 profile-image">
+								<img v-if="user.images.length" :src="user.images[0].url" alt="">
+							</figure>
+							<h1 class="subtitle is-8">{{user.display_name}}</h1>
+							
+							<br>
+							<h2>Recently Played</h2>
+							<div class="albums" v-if="recentlyPlayed">
+								<div class="album" v-for="item in recentlyPlayed.items">
+										<a :href="item.track.album.external_urls.spotify">
+											<figure class="image is-48x48">
+												<img :src="item.track.album.images[0].url" alt="">
+											</figure>
+										</a>
+										<h1 class="subtitle">{{item.track.album.name}}</h1>
+										
+								</div>
+								<br>
+								<button class="button is-small" @click="findRecommendationsFromTrack()">Get Recommendations</button> 
+							</div>
+
+							<br>
+							<h2>Recommendations</h2>
+							<div class="albums" v-if="recommendations">
+								<div class="album" v-for="item in recommendations.tracks">
+										<a :href="item.album.external_urls.spotify">
+											<figure class="image is-96x96">
+												<img :src="item.album.images[0].url" alt="">
+											</figure>
+										<h1 class="subtitle">{{item.album.name}}</h1>
+										</a>
+								</div>
+							</div>
+							<hr>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+	<script type="text/javascript">
+		var spotify = new SpotifyWebApi()
+		var r = []
+		var app = new Vue({
+			el: '#app',
+			data: {
+				user: null,
+				recentlyPlayed: null,
+				recommendations: null,
+				//recentlyPlayedID : null
+			},
+			methods: {
+				findRecommendationsFromTrack() {
+					this.recommendations = r[0];
+					console.log('this.recommendations:', this.recommendations);
+				}
+			},
+			mounted() {
+    			var token = location.search.split('?access_token=')
+    			if (token.length>1) {
+    				var accessToken = token[1]
+    				spotify.setAccessToken(accessToken)
+    				spotify.getMe().then((data) => {
+    					this.user = data
+    				})
+						spotify.getMyRecentlyPlayedTracks().then((data) => {
+							console.log(data);
+							this.recentlyPlayed = data;
+							var ids = [];
+							for (var i = 0; i < this.recentlyPlayed.items.length; i++) {
+								var id = this.recentlyPlayed.items[i].track.id;
+								console.log("i:", id);
+								ids.push(id);
+							}
+							getRecsFromTracks(ids);
+							console.log('r outside: ', r[0]);
+						})
+						//spotify.getRecommendations({seed_tracks: this.recentlyPlayed.items[0].track.id}).then((data) => {
+						//	console.log(data);
+						//	this.recentlyPlayedID = data
+						//})
+					
+    			}
+			}
+		})
+		function getRecsFromTracks (ids) {
+			console.log("GETTING RECS FOR", ids);
+			var recs = spotify.getRecommendations({seed_tracks: ids}).then((data) => {
+				console.log("RECS: ", data);
+				r.push(data);
+				console.log('r inside: ', r[0]);
+			});
+		}
+	</script>
+</body>
+</html>
