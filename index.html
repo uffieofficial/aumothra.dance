@@ -1,148 +1,72 @@
 <!DOCTYPE html>
-<html>
-<head>
-	<title>OMI Spotify App</title>
-	<script src="https://unpkg.com/vue/dist/vue.js"></script>
-	<script src="/js/spotify-web-api.js"></script>
-	<script src="https://cdnjs.cloudflare.com/ajax/libs/axios/0.16.1/axios.js"></script>
-	<link rel=stylesheet href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
-	<link rel=stylesheet href="https://cdnjs.cloudflare.com/ajax/libs/bulma/0.4.0/css/bulma.min.css">
-	<style type="text/css">
-		.profile-image {
-			margin: 0 auto;
-		}
-		.albums {
-			display: flex;
-			flex-wrap: wrap;
-			justify-content: center;
-		}
-		.album {
-			text-align: center;
-			width: 220px;
-			border: 1px solid #eee;
-			margin: 10px;
-			padding: 10px; 
-		}
-		.album figure {
-			margin: 0 auto;
-		}
-		.album h1 {
-			font-size: 14px;
-		}
-	</style>
-</head>
-<body>
-	<div id="app">
-		<div class="section">
-			<div class="container">
-				<div class="columns is-multiple">
-					<div class="column is-6 is-offset-3">
-						<div class="field">
-							<p class="control">
-								<div class="has-text-centered ">
-									<a class="button is-primary" href="/auth">Sign in with Spotify</a>
-									<a class="button is-primary" href="/search">Search Spotify</a>
-								</div>
-							</p>
-						</div>
-					</div>
-				</div>
-				<div class="columns is-multiple" v-if="user">
-					<div class="column is-12">
-						<div class="box has-text-centered">
-							<figure class="image is-96x96 profile-image">
-								<img v-if="user.images.length" :src="user.images[0].url" alt="">
-							</figure>
-							<h1 class="subtitle is-8">{{user.display_name}}</h1>
-							
-							<br>
-							<h2>Recently Played</h2>
-							<div class="albums" v-if="recentlyPlayed">
-								<div class="album" v-for="item in recentlyPlayed.items">
-										<a :href="item.track.album.external_urls.spotify">
-											<figure class="image is-48x48">
-												<img :src="item.track.album.images[0].url" alt="">
-											</figure>
-										</a>
-										<h1 class="subtitle">{{item.track.album.name}}</h1>
-										
-								</div>
-								<br>
-								<button class="button is-small" @click="findRecommendationsFromTrack()">Get Recommendations</button> 
-							</div>
+<html class="nojs html" lang="en-US">
+ <head>
 
-							<br>
-							<h2>Recommendations</h2>
-							<div class="albums" v-if="recommendations">
-								<div class="album" v-for="item in recommendations.tracks">
-										<a :href="item.album.external_urls.spotify">
-											<figure class="image is-96x96">
-												<img :src="item.album.images[0].url" alt="">
-											</figure>
-										<h1 class="subtitle">{{item.album.name}}</h1>
-										</a>
-								</div>
-							</div>
-							<hr>
-						</div>
-					</div>
-				</div>
-			</div>
-		</div>
-	</div>
-	<script type="text/javascript">
-		var spotify = new SpotifyWebApi()
-		var r = []
-		var app = new Vue({
-			el: '#app',
-			data: {
-				user: null,
-				recentlyPlayed: null,
-				recommendations: null,
-				//recentlyPlayedID : null
-			},
-			methods: {
-				findRecommendationsFromTrack() {
-					this.recommendations = r[0];
-					console.log('this.recommendations:', this.recommendations);
-				}
-			},
-			mounted() {
-    			var token = location.search.split('?access_token=')
-    			if (token.length>1) {
-    				var accessToken = token[1]
-    				spotify.setAccessToken(accessToken)
-    				spotify.getMe().then((data) => {
-    					this.user = data
-    				})
-						spotify.getMyRecentlyPlayedTracks().then((data) => {
-							console.log(data);
-							this.recentlyPlayed = data;
-							var ids = [];
-							for (var i = 0; i < this.recentlyPlayed.items.length; i++) {
-								var id = this.recentlyPlayed.items[i].track.id;
-								console.log("i:", id);
-								ids.push(id);
-							}
-							getRecsFromTracks(ids);
-							console.log('r outside: ', r[0]);
-						})
-						//spotify.getRecommendations({seed_tracks: this.recentlyPlayed.items[0].track.id}).then((data) => {
-						//	console.log(data);
-						//	this.recentlyPlayedID = data
-						//})
-					
-    			}
-			}
-		})
-		function getRecsFromTracks (ids) {
-			console.log("GETTING RECS FOR", ids);
-			var recs = spotify.getRecommendations({seed_tracks: ids}).then((data) => {
-				console.log("RECS: ", data);
-				r.push(data);
-				console.log('r inside: ', r[0]);
-			});
-		}
-	</script>
-</body>
+  <meta http-equiv="Content-type" content="text/html;charset=UTF-8"/>
+  <meta name="generator" content="2017.0.2.363"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  
+  <script type="text/javascript">
+   // Update the 'nojs'/'js' class on the html node
+document.documentElement.className = document.documentElement.className.replace(/\bnojs\b/g, 'js');
+
+// Check that all required assets are uploaded and up-to-date
+if(typeof Muse == "undefined") window.Muse = {}; window.Muse.assets = {"required":["museutils.js", "museconfig.js", "require.js", "index.css"], "outOfDate":[]};
+</script>
+  
+  <link rel="shortcut icon" href="images/good-morning-favicon.ico?crc=30147408"/>
+  <title>GOOD MORNING</title>
+  <!-- CSS -->
+  <link rel="stylesheet" type="text/css" href="css/site_global.css?crc=237313513"/>
+  <link rel="stylesheet" type="text/css" href="css/index.css?crc=4259549112" id="pagesheet"/>
+  <!-- JS includes -->
+  <script src="https://use.typekit.net/ik/_lxdC4NUq6f4d9Nf9i_lQT7Pv9jdRzvQZfnWKkorbf9feTMgfVYMN6wPH26kwDw3FDFLwDIhZcj35eItwDgy5AJX5AsKjcmcjQiqwDjoZQqajDq-wKG0jWmldasGScI0ZeB0jh9CjWmldasGScI0ZeB0jh9CiaiaOcBudANX-Y4yOcsydcF8Jy4l-WFDOAZy-cBkZeNDZPu3Scv7f6RjoMIbMg6IJM4HgIuuShAbMZDgRwGB.js" type="text/javascript"></script>
+  <!-- Other scripts -->
+  <script type="text/javascript">
+   try {Typekit.load();} catch(e) {}
+</script>
+   </head>
+ <body>
+
+  <div class="clearfix borderbox" id="page"><!-- column -->
+   <div class="clearfix colelem" id="pu220"><!-- group -->
+    <a class="nonblock nontext clip_frame grpelem" id="u220" href="milk.html"><!-- image --><img class="block" id="u220_img" src="images/193x93.jpg?crc=4035105332" alt="" data-image-width="62" data-image-height="62"/></a>
+    <div class="clearfix grpelem" id="u230-5"><!-- content -->
+     <p id="u230-3"><a class="nonblock" href="milk.html"><span id="u230">mothra / 4U mix</span></a></p>
+    </div>
+   </div>
+   <div class="clearfix colelem" id="pu200"><!-- group -->
+    <a class="nonblock nontext clip_frame grpelem" id="u200" href="eggs.html"><!-- image --><img class="block" id="u200_img" src="images/293x93.jpg?crc=3911268298" alt="" data-image-width="62" data-image-height="62"/></a>
+    <div class="clearfix grpelem" id="u234-5"><!-- content -->
+     <p id="u234-3"><a class="nonblock" href="eggs.html"><span id="u234">mothra / 4U mix (AU edit)</span></a></p>
+    </div>
+   </div>
+   <div class="clearfix colelem" id="pu190"><!-- group -->
+    <a class="nonblock nontext clip_frame grpelem" id="u190" href="bagel.html"><!-- image --><img class="block" id="u190_img" src="images/393x93.jpg?crc=4213166631" alt="" data-image-width="62" data-image-height="62"/></a>
+    <div class="clearfix grpelem" id="u237-5"><!-- content -->
+     <p id="u237-3"><a class="nonblock" href="bagel.html"><span id="u237">mothra / 4U mix (jay moth edit)</span></a></p>
+    </div>
+   </div>
+   <div class="DOWNLOAD clearfix colelem" id="u403-5"><!-- content -->
+    <p><a class="nonblock" href="http://www.mediafire.com/file/72af4sd278ubtf7/M4U.zip">DOWNLOAD</a></p>
+   </div>
+  </div>
+  <!-- Other scripts -->
+  <script type="text/javascript">
+   window.Muse.assets.check=function(d){if(!window.Muse.assets.checked){window.Muse.assets.checked=!0;var b={},c=function(a,b){if(window.getComputedStyle){var c=window.getComputedStyle(a,null);return c&&c.getPropertyValue(b)||c&&c[b]||""}if(document.documentElement.currentStyle)return(c=a.currentStyle)&&c[b]||a.style&&a.style[b]||"";return""},a=function(a){if(a.match(/^rgb/))return a=a.replace(/\s+/g,"").match(/([\d\,]+)/gi)[0].split(","),(parseInt(a[0])<<16)+(parseInt(a[1])<<8)+parseInt(a[2]);if(a.match(/^\#/))return parseInt(a.substr(1),
+16);return 0},g=function(g){for(var f=document.getElementsByTagName("link"),h=0;h<f.length;h++)if("text/css"==f[h].type){var i=(f[h].href||"").match(/\/?css\/([\w\-]+\.css)\?crc=(\d+)/);if(!i||!i[1]||!i[2])break;b[i[1]]=i[2]}f=document.createElement("div");f.className="version";f.style.cssText="display:none; width:1px; height:1px;";document.getElementsByTagName("body")[0].appendChild(f);for(h=0;h<Muse.assets.required.length;){var i=Muse.assets.required[h],l=i.match(/([\w\-\.]+)\.(\w+)$/),k=l&&l[1]?
+l[1]:null,l=l&&l[2]?l[2]:null;switch(l.toLowerCase()){case "css":k=k.replace(/\W/gi,"_").replace(/^([^a-z])/gi,"_$1");f.className+=" "+k;k=a(c(f,"color"));l=a(c(f,"backgroundColor"));k!=0||l!=0?(Muse.assets.required.splice(h,1),"undefined"!=typeof b[i]&&(k!=b[i]>>>24||l!=(b[i]&16777215))&&Muse.assets.outOfDate.push(i)):h++;f.className="version";break;case "js":h++;break;default:throw Error("Unsupported file type: "+l);}}d?d().jquery!="1.8.3"&&Muse.assets.outOfDate.push("jquery-1.8.3.min.js"):Muse.assets.required.push("jquery-1.8.3.min.js");
+f.parentNode.removeChild(f);if(Muse.assets.outOfDate.length||Muse.assets.required.length)f="Some files on the server may be missing or incorrect. Clear browser cache and try again. If the problem persists please contact website author.",g&&Muse.assets.outOfDate.length&&(f+="\nOut of date: "+Muse.assets.outOfDate.join(",")),g&&Muse.assets.required.length&&(f+="\nMissing: "+Muse.assets.required.join(",")),alert(f)};location&&location.search&&location.search.match&&location.search.match(/muse_debug/gi)?setTimeout(function(){g(!0)},5E3):g()}};
+var muse_init=function(){require.config({baseUrl:""});require(["jquery","museutils","whatinput"],function(d){var $ = d;$(document).ready(function(){try{
+window.Muse.assets.check($);/* body */
+Muse.Utils.transformMarkupToFixBrowserProblemsPreInit();/* body */
+Muse.Utils.prepHyperlinks(true);/* body */
+Muse.Utils.showWidgetsWhenReady();/* body */
+Muse.Utils.transformMarkupToFixBrowserProblems();/* body */
+}catch(b){if(b&&"function"==typeof b.notify?b.notify():Muse.Assert.fail("Error calling selector function: "+b),false)throw b;}})})};
+
+</script>
+  <!-- RequireJS script -->
+  <script src="scripts/require.js?crc=4234670167" type="text/javascript" async data-main="scripts/museconfig.js?crc=4152223963" onload="if (requirejs) requirejs.onError = function(requireType, requireModule) { if (requireType && requireType.toString && requireType.toString().indexOf && 0 <= requireType.toString().indexOf('#scripterror')) window.Muse.assets.check(); }" onerror="window.Muse.assets.check();"></script>
+   </body>
 </html>
