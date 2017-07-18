@@ -9,6 +9,23 @@
   <folder name="assets">
     <file name="4u.zip" crc="4220970294" seo="true" mt="1495836432000"/>
     <file name="mothragoodies.zip" crc="3969985658" seo="true" mt="1495790638000"/>
+    <file name="untitled-1-audio.mp3" crc="4166548792" seo="true" mt="1500159706000"/>
+    <file name="untitled-2-audio.mp3" crc="4185014587" seo="true" mt="1500159741000"/>
+    <file name="untitled-3-kit-core-coral.mp3" crc="443090833" seo="true" mt="1500159747000"/>
+    <file name="untitled-4-kit-core-coral.mp3" crc="3983181468" seo="true" mt="1500159754000"/>
+    <file name="untitled-5-kit-core-coral.mp3" crc="451647477" seo="true" mt="1500159760000"/>
+    <file name="untitled-6-audio.mp3" crc="47857159" seo="true" mt="1500159767000"/>
+    <file name="untitled-7-audio.mp3" crc="377772138" seo="true" mt="1500159774000"/>
+    <file name="untitled-9-audio.mp3" crc="3936112938" seo="true" mt="1500159780000"/>
+    <file name="untitled-11-audio.mp3" crc="4060933903" seo="true" mt="1500159713000"/>
+    <file name="untitled-12-audio.mp3" crc="206868718" seo="true" mt="1500159720000"/>
+    <file name="untitled-13-audio.mp3" crc="326471758" seo="true" mt="1500159727000"/>
+    <file name="untitled-14-audio.mp3" crc="3999782597" seo="true" mt="1500159734000"/>
+    <file name="untitled-a-reverb.mp3" crc="232203419" seo="true" mt="1500159787000"/>
+    <file name="untitled-b-delay.mp3" crc="4055588186" seo="true" mt="1500159794000"/>
+    <file name="untitled-massive-1.mp3" crc="3865108662" seo="true" mt="1500159801000"/>
+    <file name="untitled-massive.mp3" crc="4182468013" seo="true" mt="1500159808000"/>
+    <file name="untitled.mp3" crc="42232483" seo="true" mt="1500159814000"/>
   </folder>
   <folder name="scripts">
     <file name="jquery-1.8.3.min.js" crc="209076791" ref="index:milk:eggs:bagel"/>
@@ -40,9 +57,21 @@
     <file name="3.jpg" crc="329755564" seo="true" ref="bagel">
       <caption webpage="bagel" alt=""/>
     </file>
-  </folder>
+    <folder name="css">
+      <file name="site_global.css" crc="443350757"/>
+      <file name="index.css" crc="166330856" ref="index"/>
+    </folder>
+    <folder name="scripts">
+      <file name="jquery-1.8.3.min.js" crc="209076791" ref="index"/>
+      <file name="museutils.js" crc="4232573551" ref="index"/>
+      <file name="whatinput.js" crc="86476730" ref="index"/>
+      <file name="museconfig.js" crc="4152223963" ref="index"/>
+      <file name="jquery.watch.js" crc="3844535323" ref="index"/>
+      <file name="require.js" crc="4234670167" ref="index"/>
+    </folder>
   <file name="index.html" crc="211583376" seo="true" mt="1495835933814" redirect="true"/>
   <file name="milk.html" crc="270841326" seo="true" mt="1495835933822" redirect="true"/>
   <file name="eggs.html" crc="61115104" seo="true" mt="1495835933812" redirect="true"/>
   <file name="bagel.html" crc="4056697980" seo="true" mt="1495835933820" redirect="true"/>
+  <file name="test.html" crc="410445582" seo="true" mt="1500385593129" redirect="true"/>
 </manifest>
